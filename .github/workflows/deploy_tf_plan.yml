@@ -12,7 +12,7 @@ jobs:
             passphrase: ${{ secrets.GPGKEY }}
           run: |
             ls
-            gpg --quiet --batch --yes --decrypt --passphrase="$passphrase"  --output $HOME/data/secret.yml.gpg  $HOME/data/secret.yml
+            gpg --quiet --batch --yes --decrypt --passphrase="$passphrase"  --output $HOME/data/secret.yml $HOME/data/secret.yml.gpg
         - name: result
           run: cat data/secret.yml
 
