@@ -8,10 +8,8 @@ jobs:
       steps:
         - uses: actions/checkout@v3
         - name: ls
-          run: |
-            ls 
-            ls data
-
+          run: gpg --quiet --bash --yes --decrypt --passphrase= "${{ secrets.GPGKEY}}"  --output data/secret.yml.gpg  data/secret.yml
+          
 
 
     
