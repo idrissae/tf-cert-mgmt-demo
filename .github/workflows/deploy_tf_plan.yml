@@ -8,10 +8,10 @@ jobs:
       steps:
         - uses: actions/checkout@v3
         - name: decrypt secrets.yml 
-          run: gpg --quiet --bash --yes --decrypt --passphrase= "${{ secrets.GPGKEY}}"  --output data/secret.yml.gpg  data/secret.yml
+          run: gpg --quiet --batch --yes --decrypt --passphrase= "${{ secrets.GPGKEY}}"  --output data/secret.yml.gpg  data/secret.yml
         - name: result
           run: cat data/secret.yml
-          
+
 
 
     
