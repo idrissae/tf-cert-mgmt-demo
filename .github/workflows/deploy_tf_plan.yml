@@ -13,10 +13,10 @@ jobs:
           run: |
             ls -l 
             echo $HOME
-            ls data/secrets.yml.gpg
-            gpg --quiet --batch --yes --decrypt --passphrase="$passphrase"  --output $HOME/data/secrets.yml $HOME/data/secrets.yml.gpg
+            ls data/
+            gpg --quiet --batch --yes --decrypt --passphrase="$passphrase"  --output data/secrets.yml data/secrets.yml.gpg
         - name: result
-          run: cat data/secret.yml
+          run: cat data/secrets.yml
 
 
 
