@@ -7,8 +7,10 @@ jobs:
       runs-on: ubuntu-18.04
       steps:
         - uses: actions/checkout@v3
-        - name: ls
+        - name: decrypt secrets.yml 
           run: gpg --quiet --bash --yes --decrypt --passphrase= "${{ secrets.GPGKEY}}"  --output data/secret.yml.gpg  data/secret.yml
+        - name: result
+          run: cat data/secret.yml
           
 
 
