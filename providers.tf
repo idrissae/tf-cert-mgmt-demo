@@ -8,6 +8,12 @@ terraform {
       version = "1.14.0"
     }
   }
+  backend "s3" {
+    bucket = "remote-tf-state-files"
+    key = "f5-secrets"
+    region = "us-east-1"
+    
+  }
 }
 
 

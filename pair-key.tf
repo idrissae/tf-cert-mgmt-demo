@@ -23,20 +23,4 @@ resource "bigip_ssl_key" "private-key" {
   partition = var.partition
 }
 
-output "public-key" {
-  value= {
-    for k, v in  bigip_ssl_certificate.public-key : k => format("/%s/%s", v.partition, v.name)
-
-
-  } 
-}
-
-output "private-key" {
-  value= {
-    for k, v in  bigip_ssl_key.private-key : k => format("/%s/%s", v.partition, v.name)
-
-  } 
-
-  
-}
     

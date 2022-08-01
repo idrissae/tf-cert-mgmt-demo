@@ -12,7 +12,7 @@ variable "admin_username" {
 }
 variable "admin_password" {
     type = string
-    default = "Idri$$2020"
+    
   
 }
 
