@@ -1,23 +1,17 @@
 name: deploy tf plan contains encrypted file
 
-on: [push]
+on: 
+  workflow_dispatch 
 
 jobs:
     decrypt-certif-file:
       runs-on: ubuntu-18.04
       steps:
         - uses: actions/checkout@v3
-        - name: decrypt secrets.yml 
-          env: 
-            passphrase: ${{ secrets.GPGKEY }}
+        - name: echo some env vars
           run: |
-            ls -l 
-            echo $HOME
-            ls data/
-            gpg --quiet --batch --yes --decrypt --passphrase="$passphrase"  --output data/secrets.yml data/secrets.yml.gpg
-        - name: result
-          run: cat data/secrets.yml
-
+           echo $GITHUB_ACTOR
+           echo $GITHUB_TOKEN
 
 
     
